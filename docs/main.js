@@ -1,1 +1,1 @@
-window.a=function(){return 1};
+(()=>{"use strict";window.a=function(){return 1}})();
