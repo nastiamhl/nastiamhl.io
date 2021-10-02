@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build_scss": "node-sass --output-style compressed -o ./ src/scss",
-    "build_img": "imagemin src/images/**/* --out-dir=./images",
+    "build_scss": "node-sass --output-style compressed -o docs src/scss",
+    "build_img": "imagemin src/images/**/* --out-dir=docs/images",
     "build_js": "webpack --mode=production",
     "build": "npm run build_scss && npm run build_img && npm run build_js"
   },
