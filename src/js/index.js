@@ -10,7 +10,9 @@ import * as formFuncs from './forms';
     const formContainers = [...document.getElementsByClassName("form")];
     const formInputs = [...document.getElementsByClassName("form__input")];
     const togglePasswordIcons = [...document.getElementsByClassName("toggle-password")];
-    const toggleSwitchCheckboxInputs = [...document.getElementsByClassName("toggle-checkbox")];
+    const toggleSwitchCheckboxInputs = [...document.getElementsByClassName("toggle-switch")];
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
 
 
     //attaching click events to menu links to set active current link for style purposes
@@ -45,7 +47,13 @@ import * as formFuncs from './forms';
 
     //toggling switches
     toggleSwitchCheckboxInputs.forEach(toggleSwitchCheckboxInput => {
-        toggleSwitchCheckboxInput.addEventListener("change", formFuncs.toggleSwitch);
+        toggleSwitchCheckboxInput.addEventListener("click", formFuncs.toggleSwitch);
     });
+
+    //on submit login form
+    loginForm.addEventListener('submit', formFuncs.submitLoginForm);
+
+    //on submit register form
+    registerForm.addEventListener('submit', formFuncs.submitRegisterForm);
 
 })();
