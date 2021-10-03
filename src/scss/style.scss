@@ -2,10 +2,6 @@
 @import "./menu.scss";
 @import "./forms.scss";
 
-body {
-    background-color: $clr-blue-light;
-}
-
 #header {
     height: 158px;
     @include flex-center-left;

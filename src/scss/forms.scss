@@ -6,7 +6,6 @@
 
     @include responsive(mobile) {
         border-radius: 0px;
-        background-color: transparent;
     }
 }
 
@@ -36,6 +35,11 @@
             opacity: 0;
             padding: 0px;
             z-index: -10;
+
+            & form,
+            & div {
+                display: none;
+            }
         }
 
         &__title {
@@ -59,6 +63,7 @@
             position: relative;
             display: block;
             margin: 15px 0px;
+            max-width: 300px;
 
             & .toggle-password {
                 position: absolute;
@@ -90,6 +95,19 @@
             @include font(12px, $fw-regular, $clr-red, normal, "Khula");
             text-align: left;
             padding: 5px 0px 0px 17px;
+        }
+    }
+
+    &__submit {
+        &-btn {
+            margin-top: 30px;
+        }
+
+        &-message {
+            &--success {
+                @include flex-center-center;
+                @include font(20px, $fw-semi-bold, rgb(66, 177, 66));
+            }
         }
     }
 }
@@ -146,10 +164,90 @@
     }
 
     & input:checked + &__slider:before {
-        transform: translateX(18px);
+        transform: translateX(25px);
     }
 
     &__label {
-        padding-left: 10px;
+        padding-left: 14px;
+        @include font(14px, $fw-regular, $clr-black);
     }
+}
+
+.checkbox {
+    &-container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        & input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+
+            &:checked ~ .checkmark {
+                background-color: $clr-orange;
+                &::after {
+                    display: block;
+                }
+            }
+        }
+
+        &:hover {
+            & input ~ .checkmark {
+                background-color: $clr-orange-dark;
+            }
+        }
+
+        & .checkmark::after {
+            left: 8px;
+            top: 4px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &__label {
+        @include font(14px, $fw-regular, $clr-black);
+        text-align: left;
+        margin-top: 15px;
+    }
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    background-color: $clr-orange;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+}
+
+#register-form hr {
+    border-top: 2px solid $clr-orange;
+    width: 73px;
+    height: 0px;
+    margin: 0 auto;
+    opacity: 1;
+    background-color: transparent;
 }

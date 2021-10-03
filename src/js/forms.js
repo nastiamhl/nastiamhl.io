@@ -1,5 +1,5 @@
 export const switchForms = (e, formContainers) => {
-    const switchTo = e.target.id.replace('to-', '') + '-form';
+    const switchTo = e.target.id.replace('to-', '') + '-form-container';
 
     formContainers.forEach(form => {
         const isCurrentVisible = form.id != switchTo && !form.classList.contains("form-container--hidden");
@@ -29,13 +29,15 @@ export const resetInputPlaceholders = (e) => {
         label.classList.toggle("form__input__label");
         label.classList.toggle("form__input__label--focused");
     }
+
+    validateFormInputs(e);
 }
 
 export const validateFormInputs = (e) => {
     const { target: input } = e;
     const inputContainer = input.parentNode;
 
-    if ((!input.value || input.value === "")) {
+    if ((!input.value || input.value === "") && !input.classList.contains("form__input--invalid")) {
         input.classList.add("form__input--invalid");
         appendInputInvalidWarningToNode(inputContainer, input.name);
 
@@ -64,15 +66,35 @@ export const togglePassword = (e) => {
 }
 
 export const toggleSwitch = (e) => {
-    const { target } = e;
-    console.log(target);
-    target.checked = !target.checked;
+    const toggleSwitchContainer = e.currentTarget;
+    const switchInputElementId = toggleSwitchContainer.id.replace("switch-", "");
+
+    const switchInputElement = document.getElementById(switchInputElementId);
+    switchInputElement.checked = !switchInputElement.checked;
+}
+
+export const submitLoginForm = (e) => {
+    e.preventDefault();
+    const { target: form } = e;
+    const formData = Object.fromEntries(new FormData(form).entries());
+    form.classList.toggle('hidden');
+    const formContainer = form.parentNode;
+    showSuccessMessage(formContainer, "Jesteś pomyślnie zalogowany!");
+}
+
+export const submitRegisterForm = (e) => {
+    e.preventDefault();
+    const { target: form } = e;
+    const formData = Object.fromEntries(new FormData(form).entries());
+    form.classList.toggle('hidden');
+    const formContainer = form.parentNode;
+    showSuccessMessage(formContainer, "Jesteś pomyślnie zarejestrowany!");
 }
 
 //helper functions
 const appendInputInvalidWarningToNode = (inputContainer, inputName) => {
     const invalidInputLabel = document.createElement("div");
-    invalidInputLabel.innerHTML = "To pole jest wymagane";
+    invalidInputLabel.innerText = "To pole jest wymagane";
     invalidInputLabel.classList.add("form__input__warning--invalid");
     invalidInputLabel.id = "warning-invalid-" + inputName;
     inputContainer.appendChild(invalidInputLabel);
@@ -81,5 +103,12 @@ const appendInputInvalidWarningToNode = (inputContainer, inputName) => {
 const removeInputInvalidWarningById = (inputName) => {
     const invalidInputLabel = document.getElementById("warning-invalid-" + inputName);
     invalidInputLabel.remove();
+}
+
+const showSuccessMessage = (container, message) => {
+    const successMsg = document.createElement("div");
+    successMsg.innerText = message;
+    successMsg.classList.add("form__submit-message--success");
+    container.appendChild(successMsg);
 }
 
