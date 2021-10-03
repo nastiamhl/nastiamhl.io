@@ -1,0 +1,49 @@
+@import "./presets/styles";
+@import "./menu.scss";
+@import "./forms.scss";
+
+body {
+    background-color: $clr-blue-light;
+}
+
+#header {
+    height: 158px;
+    @include flex-center-left;
+
+    @include responsive("mobile") {
+        height: 51px;
+    }
+
+    &__title {
+        @include font(36px, $fw-bold, $clr-black);
+        line-height: 49px;
+
+        @include responsive("mobile") {
+            display: none;
+        }
+    }
+
+    &__img {
+        height: 43px;
+        margin-right: 12px;
+
+        @include responsive("mobile") {
+            height: 20px;
+            margin-left: 25px;
+        }
+    }
+}
+
+#poster {
+    background-image: url("../images/img/poster.png");
+    height: 695px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 0px 0px 20px;
+
+    @include responsive(mobile) {
+        height: 273px;
+        border-radius: 0px;
+    }
+}

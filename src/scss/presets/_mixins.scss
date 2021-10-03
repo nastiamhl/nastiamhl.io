@@ -1,0 +1,17 @@
+@mixin font($size, $weight, $color, $style: normal, $font: "Open Sans") {
+    font-family: $font, sans-serif;
+    font-weight: $weight;
+    color: $color;
+    font-size: $size;
+    font-style: $style;
+}
+
+@mixin flex-center-left {
+    display: flex;
+    align-items: center;
+}
+@mixin flex-center-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
