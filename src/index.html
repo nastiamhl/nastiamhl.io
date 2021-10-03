@@ -13,12 +13,12 @@
         <div class="row g-0">
             <div class="col-12">
                 <div class="row g-0">
-                    <div class="col-md-10 offset-md-1 col-xs-12">
+                    <div class="col-md-9 offset-md-1 col-xs-12">
                         <nav id="menu">
                             <header id="header">
                                 <img src=" ../src/images/svg/closing-tag.svg" alt="closing-tag-img"
                                     srcset="../src/images/svg/closing-tag-360w.svg 360w" id="header__img">
-                                <span id="header__title">Front-End</span>
+                                <h1 id="header__title">Front-End</h1>
                             </header>
                             <div id="menu__menu-items" class="ms-auto">
                                 <a href="#news" class="menu__menu-item">Wiadomości</a>
@@ -31,10 +31,98 @@
                 </div>
                 <main>
                     <div class="row g-0">
-                        <div class="col-md-6 col-xs-12">
-                        </div>
-                        <div class="col-md-6 col-xs-12">
-
+                        <div class="col-md-10 offset-md-1">
+                            <div id="form-section">
+                                <div class="row g-0">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div id="poster"></div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form form-container--hidden" id="choose-form">
+                                            <div>
+                                                <h2 class="form-container__title">
+                                                    Dzień dobry
+                                                </h2>
+                                                <div>
+                                                    <button class="btn btn-primary switch" id="to-login">
+                                                        Zaloguj się
+                                                    </button>
+                                                    <div class="form-container__title--sub">
+                                                        lub
+                                                    </div>
+                                                    <button class="btn btn-secondary switch" id="to-register">
+                                                        Zarejestruj
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form form-container" id="login-form">
+                                            <form>
+                                                <h2 class="form-container__title">
+                                                    Zaloguj się
+                                                </h2>
+                                                <div class="form__input__container">
+                                                    <input type="text" name="login" id="login" class="form__input"
+                                                        required>
+                                                    <label for="login" class="form__input__label" id="label-login">
+                                                        Login
+                                                    </label>
+                                                </div>
+                                                <div class="form__input__container">
+                                                    <input type="password" name="login-password" id="login-password"
+                                                        class="form__input" required>
+                                                    <label for="login-password" class="form__input__label"
+                                                        id="label-login-password">
+                                                        Hasło
+                                                    </label>
+                                                    <img src="./images/svg/eye-icon.svg" width="20px" height="20px"
+                                                        alt="toggle-password-visibility" class="toggle-password"
+                                                        id="show-login-password">
+                                                    <img src="./images/svg/eye-slash-icon.svg" width="20px"
+                                                        height="20px" alt="toggle-password-visibility"
+                                                        class="toggle-password hidden" id="hide-login-password">
+                                                </div>
+                                                <div class="form__input__container">
+                                                    <div class="toggle-switch__container">
+                                                        <div class="toggle-switch">
+                                                            <input type="checkbox" name="remember-me"
+                                                                class="toggle-checkbox" id="remember-me">
+                                                            <span class="toggle-switch__slider"></span>
+                                                        </div>
+                                                        <label for="remember-me"
+                                                            class="toggle-switch__label">switch</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form__input__container">
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <button class="btn btn-primary">
+                                                            Dalej
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="link link-secondary form-link switch" id="to-register">
+                                                    Nie mam konta
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="form form-container--hidden" id="register-form">
+                                            <form>
+                                                <h2 class="form-container__title">
+                                                    Zarejestruj się
+                                                </h2>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <button class="btn btn-primary">
+                                                        Załóż konto
+                                                    </button>
+                                                </div>
+                                                <div class="link link-secondary form-link switch" id="to-login">
+                                                    Chcę się zalogować
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </main>

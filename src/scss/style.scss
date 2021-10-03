@@ -26,8 +26,24 @@ body {
     &__img {
         height: 43px;
         margin-right: 12px;
+
         @include responsive("mobile") {
             height: 20px;
+            margin-left: 25px;
         }
+    }
+}
+
+#poster {
+    background-image: url("../images/img/poster.png");
+    height: 695px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px 0px 0px 20px;
+
+    @include responsive(mobile) {
+        height: 273px;
+        border-radius: 0px;
     }
 }

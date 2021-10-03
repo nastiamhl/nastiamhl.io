@@ -28,6 +28,7 @@
     position: relative;
     padding: 7px 20px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #menu {
@@ -88,6 +89,14 @@
                     @include menu-link-underline--visible;
                 }
             }
+
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
+
+        @include responsive(mobile) {
+            display: none;
         }
     }
 }
