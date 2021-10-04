@@ -5,6 +5,9 @@ import * as menuFuncs from './menu';
 import * as formFuncs from './forms';
 
 (function () {
+    //removing preload class from body
+    document.addEventListener("DOMContentLoaded", () => document.body.removeAttribute('class'));
+
     const menuItems = [...document.getElementsByClassName("menu__menu-item")];
     const switchElements = [...document.getElementsByClassName("switch")];
     const formContainers = [...document.getElementsByClassName("form")];
@@ -14,6 +17,10 @@ import * as formFuncs from './forms';
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
 
+    // reseting register for the sake of Firefox bugs which preserves the data betwen reloads
+    loginForm.reset();
+    registerForm.reset();
+    console.log("reset");
 
     //attaching click events to menu links to set active current link for style purposes
     menuItems.forEach(menuItem => {

@@ -82,6 +82,7 @@
         }
 
         &__label--focused {
+            height: 11px;
             @include font(14px, $fw-light, $clr-gray);
             position: absolute;
             top: -10px;
