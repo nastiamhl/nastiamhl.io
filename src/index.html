@@ -21,8 +21,8 @@
                                 <h1 id="header__title">Front-End</h1>
                             </header>
                             <div id="menu__menu-items" class="ms-auto">
-                                <a href="#news" class="menu__menu-item">Wiadomości</a>
-                                <a href="#tech" class="menu__menu-item">Technologie</a>
+                                <a href="#news" class="menu__menu-item" tabindex="-1" id="news-link">Wiadomości</a>
+                                <a href="#tech" class="menu__menu-item" id="tech-link">Technologie</a>
                                 <img src="../src/images/svg/hamburger-icon.svg" alt="hamburger-menu-icon"
                                     id="menu__hamburger--hidden">
                             </div>
@@ -32,7 +32,7 @@
                 <main>
                     <div class="row g-0">
                         <div class="col-md-10 offset-md-1">
-                            <div id="form-section">
+                            <section id="form-section">
                                 <div class="row g-0">
                                     <div class="col-md-6 col-xs-12">
                                         <div id="poster"></div>
@@ -40,7 +40,7 @@
                                     <div class="col-md-6 col-xs-12">
                                         <div class="form form-container" id="choose-form-container">
                                             <div>
-                                                <h2 class="form-container__title">
+                                                <h2 class="form-container__title section__title">
                                                     Dzień dobry
                                                 </h2>
                                                 <div>
@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="form form-container--hidden" id="login-form-container">
                                             <form id="login-form">
-                                                <h2 class="form-container__title">
+                                                <h2 class="form-container__title section__title">
                                                     Zaloguj się
                                                 </h2>
                                                 <div class="form__input__container">
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="form form-container--hidden" id="register-form-container">
                                             <form id="register-form">
-                                                <h2 class="form-container__title">
+                                                <h2 class="form-container__title section__title">
                                                     Zarejestruj się
                                                 </h2>
                                                 <div class="form__input__container">
@@ -174,7 +174,23 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </section>
+                            <section id="news-section">
+                                <div class="row g-0">
+                                    <div class="col-xs-12">
+                                        <h2 class="news__title section__title">
+                                            Wiadomości
+                                        </h2>
+                                        <div class="row">
+                                            <div class="col-md-10 offset-md-1">
+                                                <div id="news-container" class="row">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </main>

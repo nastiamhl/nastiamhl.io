@@ -8,4 +8,6 @@ export const setActiveLink = (e, items) => {
     target.classList.remove('menu__menu-item');
     target.classList.add('menu__menu-item--current');
 
+    document.getElementById(target.id.replace("-link", "") + "-section").scrollIntoView();
+
 }

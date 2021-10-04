@@ -1,0 +1,52 @@
+.news {
+    &__title {
+        margin: 60px 0px 30px;
+        @include flex-center-center;
+    }
+
+    &-item {
+        margin-bottom: 25px;
+        &__title {
+            margin-left: 13px;
+            @include font(24px, $fw-bold, $clr-black);
+            line-height: 22px;
+
+            &__container {
+                @include flex-start-left;
+                margin-bottom: 10px;
+            }
+
+            &__quotes {
+                content: url("../images/svg/double-quotes-icon.svg");
+                height: 22px;
+
+                @include responsive(mobile) {
+                    display: none;
+                }
+            }
+
+            @include responsive(mobile) {
+                font-size: 18px;
+            }
+        }
+
+        &__date {
+            @include font(12px, $fw-regular, $clr-black);
+            margin-bottom: 9px;
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
+
+        &__img {
+            height: 190px;
+            width: 100%;
+        }
+
+        &__content {
+            @include font(14px, $fw-regular, $clr-black);
+            line-height: 200%;
+            margin-top: 15px;
+        }
+    }
+}

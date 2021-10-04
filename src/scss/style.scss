@@ -1,6 +1,7 @@
 @import "./presets/styles";
 @import "./menu.scss";
 @import "./forms.scss";
+@import "./news.scss";
 
 #header {
     height: 158px;
@@ -41,5 +42,15 @@
     @include responsive(mobile) {
         height: 273px;
         border-radius: 0px;
+    }
+}
+
+.section {
+    &__title {
+        @include font(36px, $fw-bold, $clr-black);
+
+        @include responsive(mobile) {
+            font-size: 30px;
+        }
     }
 }

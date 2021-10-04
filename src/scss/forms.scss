@@ -43,11 +43,9 @@
         }
 
         &__title {
-            @include font(36px, $fw-bold, $clr-black);
             margin-bottom: 25px;
 
             @include responsive(mobile) {
-                font-size: 30px;
                 margin-bottom: 34px;
             }
 
