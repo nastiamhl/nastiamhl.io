@@ -11,3 +11,10 @@ export const setActiveLink = (e, items) => {
     document.getElementById(target.id.replace("-link", "") + "-section").scrollIntoView();
 
 }
+
+export const toggleMobileMenu = (menuContainer, menuItemsContainer, menuItems) => {
+    menuContainer.classList.toggle('mobile-show');
+    menuItemsContainer.classList.toggle('mobile-show');
+    menuItems.forEach(menuItem => menuItem.classList.toggle('mobile-show'));
+    document.body.classList.toggle("overflow-blocked");
+}

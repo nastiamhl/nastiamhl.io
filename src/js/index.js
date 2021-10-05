@@ -23,9 +23,12 @@ import * as newsFuncs from './news';
     const newsLoadMore = document.getElementById("news-load-more");
     const newsLoading = document.getElementById("news-loading");
     const newsUrl = "https://my-json-server.typicode.com/TomaszJaworski/test-api/news";
-    const techItems = [...document.getElementsByClassName("tech-item")];
-    let newsInitialItemsCount = 5;
-    let newsLoadMoreItemsCount = 2;
+    const newsInitialItemsCount = 5;
+    const newsLoadMoreItemsCount = 2;
+    const menuOpenElement = document.getElementById("menu__hamburger");
+    const menuCloseElement = document.getElementById("menu__hamburger__close");
+    const menuContainer = document.getElementById("menu");
+    const menuItemsContainer = document.getElementById("menu__menu-items");
 
     // reseting register for the sake of Firefox bugs which preserves the data betwen reloads
     loginForm.reset();
@@ -37,7 +40,10 @@ import * as newsFuncs from './news';
 
     //attaching click events to menu links to set active current link for style purposes
     menuItems.forEach(menuItem => {
-        menuItem.addEventListener("click", (e) => menuFuncs.setActiveLink(e, menuItems));
+        menuItem.addEventListener("click", (e) => {
+            if (menuItem.classList.contains('mobile-show')) menuFuncs.toggleMobileMenu(menuContainer, menuItemsContainer, menuItems);
+            menuFuncs.setActiveLink(e, menuItems)
+        });
     });
 
     //attaching click events to buttons and links to switch between forms
@@ -78,4 +84,7 @@ import * as newsFuncs from './news';
 
     //load following news
     newsLoadMore.addEventListener("click", (e) => newsFuncs.getNews(null, false, newsLoadMoreItemsCount, newsContainer, newsLoadMore, newsLoading));
+
+    menuOpenElement.addEventListener('click', (e) => menuFuncs.toggleMobileMenu(menuContainer, menuItemsContainer, menuItems));
+    menuCloseElement.addEventListener('click', (e) => menuFuncs.toggleMobileMenu(menuContainer, menuItemsContainer, menuItems));
 })();
