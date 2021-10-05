@@ -6,10 +6,19 @@
 
     &-item {
         margin-bottom: 25px;
+
+        @include responsive(mobile) {
+            margin-bottom: 35px;
+        }
+
         &__title {
-            margin-left: 13px;
             @include font(24px, $fw-bold, $clr-black);
             line-height: 22px;
+            
+            @include responsive(mobile) {
+                font-size: 18px;
+                margin-left: 10px;
+            }
 
             &__container {
                 @include flex-start-left;
@@ -19,15 +28,14 @@
             &__quotes {
                 content: url("../images/svg/double-quotes-icon.svg");
                 height: 22px;
+                margin-right: 13px;
 
                 @include responsive(mobile) {
                     display: none;
                 }
             }
 
-            @include responsive(mobile) {
-                font-size: 18px;
-            }
+            
         }
 
         &__date {
@@ -39,19 +47,43 @@
         }
 
         &__img {
-            height: 190px;
-            width: 100%;
+            & img {
+                height: 190px;
+                width: 100%;
+
+                object-fit: cover;
+                @include responsive(mobile) {
+                    height: auto;
+                }
+            }
         }
 
         &__content {
             @include font(14px, $fw-regular, $clr-black);
             line-height: 200%;
             margin-top: 15px;
+            @include responsive(mobile) {
+                margin-top: 5px;
+            }
+        }
+
+        &__header {
+            &__container {
+                width: 100%;
+
+                @include responsive(mobile){
+                    flex-direction: row-reverse;
+                }
+            }
         }
     }
 }
 
 #news {
+    &-container {
+        margin: 0px;
+    }
+
     &-load-more {
         @include font(16px, $fw-bold, $clr-orange);
         @include flex-center-center;

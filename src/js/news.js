@@ -43,39 +43,65 @@ const displayItems = (itemsCount, container) => {
 }
 
 const generateNewsItemElement = (item) => {
-    // handling title
+    //header container
+    const newsItemElementHeaderContainer = document.createElement("div");
+    newsItemElementHeaderContainer.classList.add("news-item__header__container");
+    newsItemElementHeaderContainer.classList.add("row");
+    newsItemElementHeaderContainer.classList.add("g-0");
+
+    // title container
     const newsItemElementTitleContainer = document.createElement("div");
     newsItemElementTitleContainer.classList.add("news-item__title__container");
+    newsItemElementTitleContainer.classList.add("col-md-12");
+    newsItemElementTitleContainer.classList.add("col-7");
 
+    // title quotes
     const newsItemElementTitleQuotes = document.createElement("div");
     newsItemElementTitleQuotes.classList.add("news-item__title__quotes");
 
+    //title text
     const newsItemElementTitle = document.createElement("div");
     newsItemElementTitle.innerText = item.title;
     newsItemElementTitle.classList.add("news-item__title");
 
+    //adding quotes and text to title container
     newsItemElementTitleContainer.appendChild(newsItemElementTitleQuotes);
     newsItemElementTitleContainer.appendChild(newsItemElementTitle);
 
+    //date
     const newsItemElementDate = document.createElement("div");
     newsItemElementDate.innerText = "Data dodania: " + new Date(item.date).toLocaleString();
     newsItemElementDate.classList.add("news-item__date");
 
-    const newsItemElementImage = document.createElement("img");
-    newsItemElementImage.src = item.image;
-    newsItemElementImage.classList.add("news-item__img");
+    //image container
+    const newsItemElementImageContainer = document.createElement("div");
+    newsItemElementImageContainer.classList.add("news-item__img");
+    newsItemElementImageContainer.classList.add("col-md-12");
+    newsItemElementImageContainer.classList.add("col-5");
 
+    //image
+    const newsItemElementImage = document.createElement("img");
+    newsItemElementImage.classList.add("img-fluid");
+    newsItemElementImage.src = item.image;
+
+    //add image to image container
+    newsItemElementImageContainer.appendChild(newsItemElementImage);
+
+    //adding title container, date & image to header container
+    newsItemElementHeaderContainer.appendChild(newsItemElementTitleContainer);
+    newsItemElementHeaderContainer.appendChild(newsItemElementDate);
+    newsItemElementHeaderContainer.appendChild(newsItemElementImageContainer);
+
+    //content
     const newsItemElementContent = document.createElement("div");
-    newsItemElementContent.innerHTML = item.text;
+    newsItemElementContent.innerHTML = item.text.toString().replaceAll("<br>", '').replaceAll("<br/>", '');
     newsItemElementContent.classList.add("news-item__content");
 
     const newsItemElement = document.createElement("div");
     newsItemElement.classList.add("news-item");
     newsItemElement.classList.add("col-md-6");
-    newsItemElement.classList.add("col-xs-12");
-    newsItemElement.appendChild(newsItemElementTitleContainer);
-    newsItemElement.appendChild(newsItemElementDate);
-    newsItemElement.appendChild(newsItemElementImage);
+    newsItemElement.classList.add("col-12");
+    newsItemElement.appendChild(newsItemElementHeaderContainer);
     newsItemElement.appendChild(newsItemElementContent);
 
     return newsItemElement;
