@@ -27,6 +27,10 @@
         padding: 20px;
         height: 100%;
 
+        @include responsive(mobile){
+            padding: 40px;
+        }
+
         &__img {
             @include flex-center-center;
             height: 77px;
@@ -41,6 +45,7 @@
 
             @include responsive(mobile) {
                 height: 77px;
+                margin: 0px 27px 20px;
             }
         }
 
