@@ -1,11 +1,17 @@
 #tech {
     &-container {
-        margin: 0px 30px;
+        margin: 0px 15px;
 
-        @include responsive(mobile) {
-            width: 200vw;
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
+        &__overflow {
+            @include responsive(mobile) {
+                overflow-x: scroll !important;
+            }
+
+            &__row{
+                @include responsive(mobile) {
+                    width: max-content !important;
+                }
+            }
         }
     }
 
