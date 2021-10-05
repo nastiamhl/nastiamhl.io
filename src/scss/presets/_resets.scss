@@ -1,6 +1,12 @@
 body {
     background-color: $clr-blue-light;
-    margin: 35px;
+    margin-bottom: 35px;
+
+    &.preload {
+        animation-duration: 0s !important;
+        -webkit-animation-duration: 0s !important;
+        transition: all 0s !important;
+    }
 }
 
 .btn {
@@ -75,6 +81,14 @@ input {
         width: 20px;
         height: 50px;
     }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    filter: none;
+    -webkit-box-shadow: 0 0 0 30px $clr-blue-light inset !important;
 }
 
 .hidden {

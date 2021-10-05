@@ -43,11 +43,9 @@
         }
 
         &__title {
-            @include font(36px, $fw-bold, $clr-black);
             margin-bottom: 25px;
 
             @include responsive(mobile) {
-                font-size: 30px;
                 margin-bottom: 34px;
             }
 
@@ -82,6 +80,7 @@
         }
 
         &__label--focused {
+            height: 11px;
             @include font(14px, $fw-light, $clr-gray);
             position: absolute;
             top: -10px;

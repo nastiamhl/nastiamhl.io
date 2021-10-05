@@ -1,0 +1,113 @@
+.news {
+    &__title {
+        margin: 60px 0px 30px;
+        @include flex-center-center;
+    }
+
+    &-item {
+        margin-bottom: 25px;
+
+        @include responsive(mobile) {
+            margin-bottom: 35px;
+        }
+
+        &__title {
+            @include font(24px, $fw-bold, $clr-black);
+            line-height: 22px;
+            
+            @include responsive(mobile) {
+                font-size: 18px;
+                margin-left: 10px;
+            }
+
+            &__container {
+                @include flex-start-left;
+                margin-bottom: 10px;
+            }
+
+            &__quotes {
+                content: url("../images/svg/double-quotes-icon.svg");
+                height: 22px;
+                margin-right: 13px;
+
+                @include responsive(mobile) {
+                    display: none;
+                }
+            }
+
+            
+        }
+
+        &__date {
+            @include font(12px, $fw-regular, $clr-black);
+            margin-bottom: 9px;
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
+
+        &__img {
+            & img {
+                height: 190px;
+                width: 100%;
+
+                object-fit: cover;
+                @include responsive(mobile) {
+                    height: auto;
+                }
+            }
+        }
+
+        &__content {
+            @include font(14px, $fw-regular, $clr-black);
+            line-height: 200%;
+            margin-top: 15px;
+            @include responsive(mobile) {
+                margin-top: 5px;
+            }
+        }
+
+        &__header {
+            &__container {
+                width: 100%;
+
+                @include responsive(mobile){
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}
+
+#news {
+    &-container {
+        margin: 0px;
+    }
+
+    &-load-more {
+        @include font(16px, $fw-bold, $clr-orange);
+        @include flex-center-center;
+        cursor: pointer;
+
+        & img {
+            margin-left: 10px;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    &-loading {
+        @include flex-center-center;
+        cursor: pointer;
+        height: 30px;
+        & img {
+            height: 20px;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+}

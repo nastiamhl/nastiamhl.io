@@ -1,3 +1,24 @@
+//helper functions
+const appendInputInvalidWarningToNode = (inputContainer, inputName) => {
+    const invalidInputLabel = document.createElement("div");
+    invalidInputLabel.innerText = "To pole jest wymagane";
+    invalidInputLabel.classList.add("form__input__warning--invalid");
+    invalidInputLabel.id = "warning-invalid-" + inputName;
+    inputContainer.appendChild(invalidInputLabel);
+}
+
+const removeInputInvalidWarningById = (inputName) => {
+    const invalidInputLabel = document.getElementById("warning-invalid-" + inputName);
+    invalidInputLabel.remove();
+}
+
+const showSuccessMessage = (container, message) => {
+    const successMsg = document.createElement("div");
+    successMsg.innerText = message;
+    successMsg.classList.add("form__submit-message--success");
+    container.appendChild(successMsg);
+}
+
 export const switchForms = (e, formContainers) => {
     const switchTo = e.target.id.replace('to-', '') + '-form-container';
 
@@ -90,25 +111,3 @@ export const submitRegisterForm = (e) => {
     const formContainer = form.parentNode;
     showSuccessMessage(formContainer, "Jesteś pomyślnie zarejestrowany!");
 }
-
-//helper functions
-const appendInputInvalidWarningToNode = (inputContainer, inputName) => {
-    const invalidInputLabel = document.createElement("div");
-    invalidInputLabel.innerText = "To pole jest wymagane";
-    invalidInputLabel.classList.add("form__input__warning--invalid");
-    invalidInputLabel.id = "warning-invalid-" + inputName;
-    inputContainer.appendChild(invalidInputLabel);
-}
-
-const removeInputInvalidWarningById = (inputName) => {
-    const invalidInputLabel = document.getElementById("warning-invalid-" + inputName);
-    invalidInputLabel.remove();
-}
-
-const showSuccessMessage = (container, message) => {
-    const successMsg = document.createElement("div");
-    successMsg.innerText = message;
-    successMsg.classList.add("form__submit-message--success");
-    container.appendChild(successMsg);
-}
-

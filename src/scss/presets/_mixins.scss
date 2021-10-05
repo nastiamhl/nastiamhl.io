@@ -10,6 +10,12 @@
     display: flex;
     align-items: center;
 }
+
+@mixin flex-start-left {
+    display: flex;
+    align-items: flex-start;
+}
+
 @mixin flex-center-center {
     display: flex;
     align-items: center;
