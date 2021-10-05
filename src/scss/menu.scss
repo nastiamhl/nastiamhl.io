@@ -33,18 +33,69 @@
 
 #menu {
     @include flex-center-left;
+    transition: all 0.1s ease-in-out;
+
+    @include responsive(mobile) {
+        &.mobile-show {
+            transition: all 0.3s ease-in-out;
+            height: 100vh;
+            display: flex;
+            z-index: 100;
+            overflow: hidden;
+            & header {
+                align-self: baseline;
+            }
+
+            & #menu__hamburger__close {
+                display: block;
+                align-self: baseline;
+                transition: display 0.3s ease-in-out;
+                margin: 0px 15px;
+                height: 12px;
+            }
+
+            & #menu__hamburger {
+                display: none;
+            }
+
+            & .menu__menu-item,
+            .menu__menu-item--current {
+                &.mobile-show {
+                    transition: all 0.3s ease-in-out;
+                    display: block;
+                }
+            }
+        }
+    }
 
     &__menu-items {
         @include flex-center-left;
+        transition: all 0.1s ease-in-out;
+
+        &.mobile-show {
+            @include responsive(mobile) {
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                margin-top: 317px;
+                transition: all 0.3s ease-in-out;
+            }
+        }
     }
 
     &__hamburger {
-        display: block;
-        transition: display 0.3s ease-in-out;
+        display: none;
+        transition: display 0.1s ease-in-out;
 
-        &--hidden {
-            display: none;
+        @include responsive(mobile) {
+            display: block;
             transition: display 0.3s ease-in-out;
+            margin: 0px 15px;
+            height: 12px;
+        }
+
+        &__close {
+            display: none;
         }
     }
 }
@@ -92,11 +143,13 @@
 
             @include responsive(mobile) {
                 display: none;
+                transition: all 0.1s ease-in-out;
             }
         }
 
         @include responsive(mobile) {
             display: none;
+            transition: all 0.1s ease-in-out;
         }
     }
 }

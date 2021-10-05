@@ -5,6 +5,10 @@ body {
         -webkit-animation-duration: 0s !important;
         transition: all 0s !important;
     }
+
+    &.overflow-blocked {
+        overflow: hidden;
+    }
 }
 
 .btn {
