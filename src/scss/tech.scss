@@ -35,8 +35,8 @@
             transition: all 0.3s ease-in-out;
 
             & img {
-                height: 100%;
-                width: 100%;
+                height: inherit;
+                width: inherit;
             }
 
             @include responsive(mobile) {
