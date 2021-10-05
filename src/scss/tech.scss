@@ -5,6 +5,7 @@
         &__overflow {
             @include responsive(mobile) {
                 overflow-x: scroll !important;
+                width: 100%;
             }
 
             &__row{
