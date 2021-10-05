@@ -45,24 +45,24 @@ const displayItems = (itemsCount, container) => {
 const generateNewsItemElement = (item) => {
     //header container
     const newsItemElementHeaderContainer = document.createElement("div");
-    newsItemElementHeaderContainer.classList.add("news-item__header__container");
+    newsItemElementHeaderContainer.classList.add("news__item__header__container");
     newsItemElementHeaderContainer.classList.add("row");
     newsItemElementHeaderContainer.classList.add("g-0");
 
     // title container
     const newsItemElementTitleContainer = document.createElement("div");
-    newsItemElementTitleContainer.classList.add("news-item__title__container");
+    newsItemElementTitleContainer.classList.add("news__item__title__container");
     newsItemElementTitleContainer.classList.add("col-md-12");
     newsItemElementTitleContainer.classList.add("col-7");
 
     // title quotes
     const newsItemElementTitleQuotes = document.createElement("div");
-    newsItemElementTitleQuotes.classList.add("news-item__title__quotes");
+    newsItemElementTitleQuotes.classList.add("news__item__title__quotes");
 
     //title text
     const newsItemElementTitle = document.createElement("div");
     newsItemElementTitle.innerText = item.title;
-    newsItemElementTitle.classList.add("news-item__title");
+    newsItemElementTitle.classList.add("news__item__title");
 
     //adding quotes and text to title container
     newsItemElementTitleContainer.appendChild(newsItemElementTitleQuotes);
@@ -71,11 +71,11 @@ const generateNewsItemElement = (item) => {
     //date
     const newsItemElementDate = document.createElement("div");
     newsItemElementDate.innerText = "Data dodania: " + new Date(item.date).toLocaleString();
-    newsItemElementDate.classList.add("news-item__date");
+    newsItemElementDate.classList.add("news__item__date");
 
     //image container
     const newsItemElementImageContainer = document.createElement("div");
-    newsItemElementImageContainer.classList.add("news-item__img");
+    newsItemElementImageContainer.classList.add("news__item__img");
     newsItemElementImageContainer.classList.add("col-md-12");
     newsItemElementImageContainer.classList.add("col-5");
 
@@ -95,10 +95,10 @@ const generateNewsItemElement = (item) => {
     //content
     const newsItemElementContent = document.createElement("div");
     newsItemElementContent.innerHTML = item.text.toString().replaceAll("<br>", '').replaceAll("<br/>", '');
-    newsItemElementContent.classList.add("news-item__content");
+    newsItemElementContent.classList.add("news__item__content");
 
     const newsItemElement = document.createElement("div");
-    newsItemElement.classList.add("news-item");
+    newsItemElement.classList.add("news__item");
     newsItemElement.classList.add("col-md-6");
     newsItemElement.classList.add("col-12");
     newsItemElement.appendChild(newsItemElementHeaderContainer);
