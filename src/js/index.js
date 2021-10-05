@@ -23,6 +23,7 @@ import * as newsFuncs from './news';
     const newsLoadMore = document.getElementById("news-load-more");
     const newsLoading = document.getElementById("news-loading");
     const newsUrl = "https://my-json-server.typicode.com/TomaszJaworski/test-api/news";
+    const techItems = [...document.getElementsByClassName("tech-item")];
     let newsInitialItemsCount = 5;
     let newsLoadMoreItemsCount = 2;
 
@@ -75,5 +76,6 @@ import * as newsFuncs from './news';
     //on submit register form
     registerForm.addEventListener('submit', formFuncs.submitRegisterForm);
 
+    //load following news
     newsLoadMore.addEventListener("click", (e) => newsFuncs.getNews(null, false, newsLoadMoreItemsCount, newsContainer, newsLoadMore, newsLoading));
 })();

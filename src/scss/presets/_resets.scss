@@ -1,7 +1,12 @@
+html {
+    overflow-x: hidden;
+}
+
 body {
     background-color: $clr-blue-light;
     margin-bottom: 35px;
-
+    overflow-x: hidden;
+    
     &.preload {
         animation-duration: 0s !important;
         -webkit-animation-duration: 0s !important;
