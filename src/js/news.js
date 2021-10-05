@@ -5,7 +5,7 @@ const fetchNews = async (url) => {
     const response = await fetch(url, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json; charset=UTF-8'
         },
         referrerPolicy: 'no-referrer'
     });

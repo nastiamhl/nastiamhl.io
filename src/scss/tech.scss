@@ -34,7 +34,7 @@
         &__img {
             @include flex-center-center;
             height: 77px;
-            margin: 27px;
+            margin: 27px 0px;
             filter: grayscale(100%) contrast(100%);
             transition: all 0.3s ease-in-out;
 
@@ -45,7 +45,7 @@
 
             @include responsive(mobile) {
                 height: 77px;
-                margin: 0px 27px 20px;
+                margin: 27px 0px;
             }
         }
 
