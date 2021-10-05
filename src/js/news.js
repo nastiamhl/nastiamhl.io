@@ -13,6 +13,16 @@ const fetchNews = async (url) => {
     return response.json();
 }
 
+const toggleNewsLoading = (newsLoadMoreElement, loadingElement) => {
+    newsLoadMoreElement.classList.toggle('hidden');
+    loadingElement.classList.toggle('hidden');
+}
+
+const hideNewsLoadingElements = (newsLoadMoreElement, loadingElement) => {
+    !newsLoadMoreElement.classList.contains('hidden') && newsLoadMoreElement.classList.add('hidden');
+    !loadingElement.classList.contains('hidden') && loadingElement.classList.add('hidden');
+}
+
 const displayItems = (itemsCount, container) => {
     let newItemsDisplayedCount = itemsCurrentlyVisibleCount + itemsCount;
     let newNewsItems;
@@ -48,7 +58,7 @@ const generateNewsItemElement = (item) => {
     newsItemElementTitleContainer.appendChild(newsItemElementTitle);
 
     const newsItemElementDate = document.createElement("div");
-    newsItemElementDate.innerText = new Date(item.date).toLocaleString();
+    newsItemElementDate.innerText = "Data dodania: " + new Date(item.date).toLocaleString();
     newsItemElementDate.classList.add("news-item__date");
 
     const newsItemElementImage = document.createElement("img");
@@ -71,15 +81,31 @@ const generateNewsItemElement = (item) => {
     return newsItemElement;
 }
 
-export const getNews = (url, isFirstBatch, itemsCount, container) => {
+export const getNews = (url, isFirstBatch, itemsCount, container, newsLoadMoreElement, loadingElement) => {
+    toggleNewsLoading(newsLoadMoreElement, loadingElement);
     if (isFirstBatch) {
         fetchNews(url)
             .then(news => {
                 data = news;
-                displayItems(itemsCount, container);
+                displayItems(itemsCount, container, newsLoadMoreElement, loadingElement);
+                //setTimeout() for the sake of showing loader a little more - presentation purposes
+                if (itemsCurrentlyVisibleCount >= data.length) hideNewsLoadingElements(newsLoadMoreElement, loadingElement)
+                else toggleNewsLoading(newsLoadMoreElement, loadingElement);
+
             })
-            .catch(e => console.log(e));
+            .catch(e => {
+                console.log(e);
+                //setTimeout() for the sake of showing loader a little more - presentation purposes
+                setTimeout(function () {
+                    toggleNewsLoading(newsLoadMoreElement, loadingElement);
+                }, 1000);
+            });
     } else {
         displayItems(itemsCount, container);
+        //setTimeout() for the sake of showing loader a little more - presentation purposes
+        setTimeout(function () {
+            if (itemsCurrentlyVisibleCount >= data.length) hideNewsLoadingElements(newsLoadMoreElement, loadingElement)
+            else toggleNewsLoading(newsLoadMoreElement, loadingElement);
+        }, 1000);
     }
 }

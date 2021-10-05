@@ -50,3 +50,32 @@
         }
     }
 }
+
+#news {
+    &-load-more {
+        @include font(16px, $fw-bold, $clr-orange);
+        @include flex-center-center;
+        cursor: pointer;
+
+        & img {
+            margin-left: 10px;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    &-loading {
+        @include flex-center-center;
+        cursor: pointer;
+        height: 30px;
+        & img {
+            height: 20px;
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
