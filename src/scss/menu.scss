@@ -33,7 +33,7 @@
 
 #menu {
     @include flex-center-left;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     @include responsive(mobile) {
         &.mobile-show {
@@ -70,7 +70,7 @@
 
     &__menu-items {
         @include flex-center-left;
-        transition: all 0.1s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         &.mobile-show {
             @include responsive(mobile) {
@@ -85,7 +85,7 @@
 
     &__hamburger {
         display: none;
-        transition: display 0.1s ease-in-out;
+        transition: display 0.2s ease-in-out;
 
         @include responsive(mobile) {
             display: block;
@@ -143,13 +143,13 @@
 
             @include responsive(mobile) {
                 display: none;
-                transition: all 0.1s ease-in-out;
+                transition: all 0.2s ease-in-out;
             }
         }
 
         @include responsive(mobile) {
             display: none;
-            transition: all 0.1s ease-in-out;
+            transition: all 0.2s ease-in-out;
         }
     }
 }
