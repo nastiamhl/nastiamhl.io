@@ -48,12 +48,13 @@
 
 .section {
     &__title {
-        margin: 60px 0px 30px;
+        padding: 60px 0px 30px;
         @include flex-center-center;
         @include font(36px, $fw-bold, $clr-black);
 
         @include responsive(mobile) {
             font-size: 30px;
+            padding-top: 40px;
         }
     }
 }
